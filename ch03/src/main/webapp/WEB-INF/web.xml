@@ -11,4 +11,24 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.xhtml</welcome-file>
   </welcome-file-list>
+  
+  <!-- 환경 설정 -->
+  <context-param>
+  	<description>DBMS 주소</description>
+  	<param-name>HOST</param-name>
+  	<param-value>jdbc:mysql://localhost:3306/studydb</param-value>
+  </context-param>
+  
+  <context-param>
+  	<description>DBMS 아이디</description>
+  	<param-name>USER</param-name>
+  	<param-value>osh7313240</param-value>
+  </context-param>
+  
+  <context-param>
+  	<description>DBMS 비밀번호</description>
+  	<param-name>PASS</param-name>
+  	<param-value>1234</param-value>
+  </context-param>
+  
 </web-app>

@@ -55,5 +55,89 @@
 			IP 주소 : <%= request.getRemoteAddr() %><br>
 		</p>
 		
+		<h4>폼 전송 테스트</h4>
+
+        <form action="proc/register.jsp" method="get">
+            <table border="1">
+                <tr>
+                    <td>아이디</td>
+                    <td><input type="text" name="userid" placeholder="아이디를 입력하세요."></td>
+                </tr>
+                <tr>
+                    <td>비밀번호</td>
+                    <td><input type="password" name="pass" placeholder="비밀번호를 입력하세요."></td>
+                </tr>
+                <tr>
+                    <td>이름</td>
+                    <td><input type="text" name="name" placeholder="이름을 입력하세요."></td>
+                </tr>
+                <tr>
+                    <td>생년월일</td>
+                    <td><input type="date" name = "birth" placeholder="생년월일을 선택하세요."></td>
+                </tr>
+                <tr>
+                    <td>이메일</td>
+                    <td><input type="email" name = "email" placeholder="이메일을 입력하세요."></td>
+                </tr>
+                <tr>
+                    <td>나이</td>
+                    <td><input type="number" name = "age" placeholder="나이를 입력하세요."></td>
+                </tr>
+                <tr>
+                    <td>성별</td>
+                    <td>
+                        <label><input type="radio" name = "gender" value="M">남</label>
+                        <label><input type="radio" name = "gender" value="F">여</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>취미</td>
+                    <td>
+                        <label><input type="checkbox" name = "hobby" value="등산">등산</label>
+                        <label><input type="checkbox" name = "hobby" value="영화">영화</label>
+                        <label><input type="checkbox" name = "hobby" value="독서">독서</label>
+                        <label><input type="checkbox" name = "hobby" value="운동">운동</label>
+                        <label><input type="checkbox" name = "hobby" value="게임">게임</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>주소</td>
+                    <td>
+                        <select name = "addr">
+                            <option>서울</option>
+                            <option>대전</option>
+                            <option>대구</option>
+                            <option>부산</option>
+                            <option>광주</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>소개</td>
+                    <td>
+                        <textarea name="introduce"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>파일첨부</td>
+                    <td>
+                        <input type="file" name="picture">
+                    </td>
+                </tr>
+                <tr>
+                    <td>숨김필드</td>
+                    <td>
+                        <input type="hidden" name="id" value="osh7313240">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="right">
+                        <input type="submit" value="회원가입">
+                    </td>
+                </tr>
+            </table>
+        </form>
+		
+		
 	</body>
 </html>
