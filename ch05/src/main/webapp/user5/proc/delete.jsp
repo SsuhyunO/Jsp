@@ -1,3 +1,6 @@
+<%@page import="javax.sql.DataSource"%>
+<%@page import="javax.naming.InitialContext"%>
+<%@page import="javax.naming.Context"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="java.sql.DriverManager"%>
@@ -9,16 +12,22 @@
 	// ----------------------------------
 	// 데이터베이스 저장
 	// ----------------------------------
-	String host = "jdbc:mysql://127.0.0.1:3306/studydb";
-	String user = "osh7313240";
-	String password = "1234";
+	// String host = "jdbc:mysql://127.0.0.1:3306/studydb";
+	// String user = "osh7313240";
+	// String password = "1234";
 	
 	try{
-		// 1) 드라이버 로드
-		Class.forName("com.mysql.cj.jdbc.Driver");
-	
-		// 2) 데이터베이스 접속
-		Connection conn = DriverManager.getConnection(host, user, password);		
+		//----------------------------------
+		// DBCP 방식
+		//----------------------------------
+		
+		// 1) JNDI 서비스 객체 생성
+		Context initCtx = new InitialContext();
+		Context ctx = (Context)initCtx.lookup("java:comp/env"); // JNDI 기본 환경 이름
+
+		// 2) 커넥션풀 데이터베이스 커넥션 가져오기
+		DataSource ds = (DataSource)ctx.lookup("jdbc/studydb");
+		Connection conn = ds.getConnection();		
 
 		// 3) SQL 실행 객체 생성
 		String sql = "DELETE FROM `user5` WHERE seq=?";
