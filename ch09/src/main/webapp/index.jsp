@@ -9,9 +9,12 @@
 		<h3>10. MVC 아키텍처</h3>
 		
 		<h4>MVC 기본</h4>
-		<a href="hello.do">hello</a>
-		<a href="welcome.do">welcome</a>
-		<a href="greeting.do">greeting</a>
+		<a href="/hello.do">hello</a>
+		<a href="/welcome.do">welcome</a>
+		<a href="/greeting.do">greeting</a>
+		
+		<h4>MVC 종합실습</h4>
+		<a href="/ch09/user1/list.do">User1 목록</a>
 		
 	</body>
 </html>
