@@ -15,6 +15,10 @@
 		
 		<h4>MVC 종합실습</h4>
 		<a href="/ch09/user1/list.do">User1 목록</a>
+		<a href="/ch09/user2/list.do">User2 목록</a>
+		<a href="/ch09/user3/list.do">User3 목록</a>
+		<a href="/ch09/user4/list.do">User4 목록</a>
+		<a href="/ch09/user5/list.do">User5 목록</a>
 		
 	</body>
 </html>
