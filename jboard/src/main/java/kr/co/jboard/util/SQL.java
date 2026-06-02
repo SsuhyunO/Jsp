@@ -18,9 +18,10 @@ public class SQL {
 	public static final String DELETE_ARTICLE = "DELETE FROM Article WHERE ano=?";
 	
 	// User
-	public static final String INSERT_USER = "INSERT INTO User(userid, pass, name, nick, email, hp, zip, addr1, addr2, regip, regDate, leaveDate)"
-																									+"(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW(), ?)";
+	public static final String INSERT_USER = "INSERT INTO User(userid, pass, name, nick, email, hp, zip, addr1, addr2, regip, regDate)"
+																				+ "VALUES (?, SHA2(?, 256), ?, ?, ?, ?, ?, ?, ?, ?, NOW())";
 	public static final String SELECT_USER = "SELECT * FROM User WHERE userid=?";
+	public static final String SELECT_USER_WITH_PASS = "SELECT * FROM User WHERE userid=? AND pass=SHA2(?, 256)";
 	public static final String SELECT_ALL_USER = "SELECT * FROM User";
 	public static final String UPDATE_USER = "";
 	public static final String DELETE_USER = "DELETE FROM User WHERE userid=?";

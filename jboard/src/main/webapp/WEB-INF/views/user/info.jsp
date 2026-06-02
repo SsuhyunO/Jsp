@@ -8,11 +8,7 @@
 </head>
 <body>
     <div id="wrapper">
-        <header>
-            <h3>
-                <a href="/index.html" class="title">Board Project</a>
-            </h3>
-        </header>
+    	<%@ include file="./_head.jsp" %>
         <main id="user">
             <section class="info">
                 <form action="#" method="post">
@@ -103,9 +99,7 @@
                 </form>
             </section>
         </main>
-        <footer>
-            <p>ⓒCopyright chhak.or.kr</p>
-        </footer>
+        <%@ include file="./_tail.jsp" %>
     </div>    
 </body>
 </html>

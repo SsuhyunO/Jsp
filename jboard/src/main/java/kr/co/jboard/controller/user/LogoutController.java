@@ -8,28 +8,27 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import kr.co.jboard.dto.TermsDTO;
-import kr.co.jboard.service.TermsService;
+import jakarta.servlet.http.HttpSession;
+import kr.co.jboard.dto.UserDTO;
+import kr.co.jboard.service.UserService;
 
-@WebServlet("/user/terms.do")
-public class TermsController extends HttpServlet{
+@WebServlet("/user/logout.do")
+public class LogoutController extends HttpServlet{
 
 	private static final long serialVersionUID = 1L;
 
 	// 서비스 가져오기(열거 상수 객체)
-	private TermsService service = TermsService.INSTANCE;
+	private UserService service = UserService.INSTANCE;
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// 약관 데이터 가져오기
-		TermsDTO termsDTO = service.findById("1");
+		// 로그아웃 처리
+		HttpSession session = req.getSession();
+		session.removeAttribute("sessUser");
+		session.invalidate();
 		
-		// Request 공유 참조
-		req.setAttribute("termsDTO", termsDTO);
-		
-		// View 포워드
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/user/terms.jsp");
-		dispatcher.forward(req, resp);
+		// 로그인 이동
+		resp.sendRedirect("/jboard/user/login.do?logout=success");
 	}
 	
 	@Override

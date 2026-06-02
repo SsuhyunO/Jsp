@@ -43,7 +43,6 @@
         JSP, Servlet, Spring<br>
         MySQL, Tomcat<br>
     </p>
-    
 
 </body>
 </html>

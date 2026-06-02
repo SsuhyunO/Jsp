@@ -8,18 +8,14 @@
 </head>
 <body>
     <div id="wrapper">
-        <header>
-            <h3>
-                <a href="/index.html" class="title">Board Project</a>
-            </h3>
-        </header>
+        <%@ include file="./_head.jsp" %>
         <main id="user">
             <section class="login">
-                <form action="../article/list.html">                    
+                <form action="/jboard/user/login.do" method='post'>                    
                     <table border="0">
                         <tr>
                             <td><img src="../images/login_ico_id.png" alt="아이디"/></td>
-                            <td><input type="text" name="uid" placeholder="아이디 입력"/></td>
+                            <td><input type="text" name="userid" placeholder="아이디 입력"/></td>
                         </tr>
                         <tr>
                             <td><img src="../images/login_ico_pw.png" alt="비밀번호"/></td>
@@ -35,19 +31,14 @@
                         아직 회원이 아니시면 회원으로 가입하세요.
                     </p>
                     <div style="text-align: right;">
-                        <a href="../find/userId.html">아이디 |</a>
-                        <a href="../find/password.html">비밀번호찾기 |</a>
-                        <a href="./terms.html">회원가입</a>
+                        <a href="/">아이디 |</a>
+                        <a href="/">비밀번호찾기 |</a>
+                        <a href="/jboard/user/terms.do">회원가입</a>
                     </div>                    
                 </div>
             </section>
         </main>
-        <footer>
-            <p>
-                <span class="copyright">Copyrightⓒ 김철학(개발에반하다.)</span>
-                <span class="version">v1.0.1</span>
-            </p>
-        </footer>
+        <%@ include file="./_tail.jsp" %>
     </div>    
 </body>
 </html>
