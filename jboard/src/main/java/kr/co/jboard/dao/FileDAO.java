@@ -54,7 +54,7 @@ public class FileDAO extends DBHelper{
 			
 			rs = psmt.executeQuery();
 			
-			if(rs.next()) {
+			while(rs.next()) {
 				FileDTO dto = new FileDTO();
 				dto.setFno(rs.getInt(1));
 				dto.setAno(rs.getInt(2));

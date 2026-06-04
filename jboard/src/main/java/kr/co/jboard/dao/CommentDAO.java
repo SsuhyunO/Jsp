@@ -54,7 +54,7 @@ public class CommentDAO extends DBHelper{
 			
 			rs = psmt.executeQuery();
 			
-			if(rs.next()) {
+			while(rs.next()) {
 				CommentDTO dto = new CommentDTO();
 				dto.setCno(rs.getInt(1));
 				dto.setParent(rs.getInt(2));

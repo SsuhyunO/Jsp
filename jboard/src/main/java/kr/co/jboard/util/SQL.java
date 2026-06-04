@@ -21,6 +21,11 @@ public class SQL {
 	public static final String INSERT_USER = "INSERT INTO User(userid, pass, name, nick, email, hp, zip, addr1, addr2, regip, regDate)"
 																				+ "VALUES (?, SHA2(?, 256), ?, ?, ?, ?, ?, ?, ?, ?, NOW())";
 	public static final String SELECT_USER = "SELECT * FROM User WHERE userid=?";
+	public static final String SELECT_COUNT_USER = "SELECT COUNT(*) FROM User ";	
+	public static final String WHERE_USERID = "WHERE userid=?";	
+	public static final String WHERE_NICK = "WHERE nick=?";	
+	public static final String WHERE_EMAIL = "WHERE email=?";	
+	public static final String WHERE_HP = "WHERE hp=?";	
 	public static final String SELECT_USER_WITH_PASS = "SELECT * FROM User WHERE userid=? AND pass=SHA2(?, 256)";
 	public static final String SELECT_ALL_USER = "SELECT * FROM User";
 	public static final String UPDATE_USER = "";

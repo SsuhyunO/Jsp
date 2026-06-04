@@ -58,7 +58,7 @@ public class ArticleDAO extends DBHelper{
 			
 			rs = psmt.executeQuery();
 			
-			if(rs.next()) {
+			while(rs.next()) {
 				ArticleDTO dto = new ArticleDTO();
 				dto.setAno(rs.getInt(1));
 				dto.setType(rs.getString(2));

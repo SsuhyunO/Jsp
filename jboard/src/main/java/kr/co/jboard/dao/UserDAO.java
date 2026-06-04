@@ -15,6 +15,39 @@ public class UserDAO extends DBHelper{
 	}
 	private UserDAO () {};
 	
+	public int selectCount(String type, String value) {
+		int count = 0;
+		
+		String sql = SQL.SELECT_COUNT_USER;
+		if(type.equals("userid")) {
+			sql += SQL.WHERE_USERID;
+		}else if(type.equals("nick")) {
+			sql += SQL.WHERE_NICK;
+		}else if(type.equals("email")) {
+			sql += SQL.WHERE_EMAIL;
+		}else if(type.equals("hp")) {
+			sql += SQL.WHERE_HP;
+		}
+		
+		try {
+			conn = getConnection();
+			
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, value);
+			rs = psmt.executeQuery();
+			
+			if(rs.next()) {
+				count = rs.getInt(1);
+			}
+			
+			closeAll();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return count;
+	}
+	
 	// 기본 CRUD 메서드
 	public UserDTO select(String userid) {
 		UserDTO dto = null;
@@ -95,7 +128,7 @@ public class UserDAO extends DBHelper{
 			
 			rs = psmt.executeQuery();
 			
-			if(rs.next()) {
+			while(rs.next()) {
 				UserDTO dto = new UserDTO();
 				dto.setUserid(rs.getString(1));
 				dto.setPass(rs.getString(2));

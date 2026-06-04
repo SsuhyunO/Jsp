@@ -51,7 +51,7 @@ public class TermsDAO extends DBHelper{
 			
 			rs = psmt.executeQuery();
 			
-			if(rs.next()) {
+			while(rs.next()) {
 				TermsDTO dto = new TermsDTO();
 				dto.setNo(rs.getInt(1));
 				dto.setBasic(rs.getString(2));
