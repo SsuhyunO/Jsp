@@ -8,6 +8,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import kr.co.jboard.dto.ArticleDTO;
 import kr.co.jboard.service.ArticleService;
 
 @WebServlet("/article/write.do")
@@ -27,6 +28,24 @@ public class WriteController extends HttpServlet{
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		// 전송 파라미터 수신
+		String title = req.getParameter("title");
+		String content = req.getParameter("content");
+		String writer = req.getParameter("writer");
+		String regip = req.getRemoteAddr();
+		
+		// DTO 생성
+		ArticleDTO dto = new ArticleDTO();
+		dto.setTitle(title);
+		dto.setContent(content);
+		dto.setWriter(writer);
+		dto.setRegip(regip);
+		
+		// 등록 서비스 요청
+		service.register(dto);
+		
+		// 목록 이동
+		resp.sendRedirect("/jboard/article/list.do?write=success");
 		
 	}
 }

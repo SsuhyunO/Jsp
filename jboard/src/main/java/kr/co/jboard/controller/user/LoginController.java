@@ -33,11 +33,9 @@ public class LoginController extends HttpServlet{
 		// 전송 데이터 수신
 		String userid = req.getParameter("userid");
 		String pass = req.getParameter("pass");
-		System.out.println(userid);
 		
 		// 서비스 호출
 		UserDTO userDTO = service.findById(userid, pass);
-		System.out.println(userDTO);
 		
 		if(userDTO != null) {
 			// 회원 맞음 -> 세션 저장 후 글목록 이동
