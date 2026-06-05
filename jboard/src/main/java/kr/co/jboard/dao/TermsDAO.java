@@ -1,5 +1,6 @@
 package kr.co.jboard.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import kr.co.jboard.dto.TermsDTO;
@@ -42,7 +43,7 @@ public class TermsDAO extends DBHelper{
 	}
 	
 	public List<TermsDTO> selectAll() {
-		List<TermsDTO> dtoList = null;
+		List<TermsDTO> dtoList = new ArrayList<>();
 		
 		try {
 			conn = getConnection();

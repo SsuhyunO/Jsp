@@ -1,5 +1,6 @@
 package kr.co.jboard.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import kr.co.jboard.dto.UserDTO;
@@ -119,7 +120,7 @@ public class UserDAO extends DBHelper{
 	}
 	
 	public List<UserDTO> selectAll() {
-		List<UserDTO> dtoList = null;
+		List<UserDTO> dtoList = new ArrayList<>();
 		
 		try {
 			conn = getConnection();

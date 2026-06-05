@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>로그인</title>
-    <link rel="stylesheet" href="../css/style.css"/>
+    <link rel="stylesheet" href="/jboard/css/style.css"/>
 </head>
 <body>
     <div id="wrapper">
@@ -14,11 +14,11 @@
                 <form action="/jboard/user/login.do" method='post'>                    
                     <table border="0">
                         <tr>
-                            <td><img src="../images/login_ico_id.png" alt="아이디"/></td>
+                            <td><img src="/jboard/images/login_ico_id.png" alt="아이디"/></td>
                             <td><input type="text" name="userid" placeholder="아이디 입력"/></td>
                         </tr>
                         <tr>
-                            <td><img src="../images/login_ico_pw.png" alt="비밀번호"/></td>
+                            <td><img src="/jboard/images/login_ico_pw.png" alt="비밀번호"/></td>
                             <td><input type="password" name="pass" placeholder="비밀번호 입력"/></td>
                         </tr>
                     </table>

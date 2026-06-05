@@ -13,8 +13,8 @@ import kr.co.jboard.dto.ArticleDTO;
 import kr.co.jboard.dto.PageGroupDTO;
 import kr.co.jboard.service.ArticleService;
 
-@WebServlet("/article/list.do")
-public class ListController extends HttpServlet{
+@WebServlet("/article/search.do")
+public class SearchController extends HttpServlet{
 
 	private static final long serialVersionUID = 1L;
 
@@ -25,11 +25,17 @@ public class ListController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// 전송 파라미터 수신
+		String searchType = req.getParameter("searchType");
+		String keyword = req.getParameter("keyword");
 		String page = req.getParameter("page");
-		System.out.println(page);
 				
+		// 검색용 DTO 생성
+		ArticleDTO dto = new ArticleDTO();
+		dto.setSearchType(searchType);
+		dto.setKeyword(keyword);
+		
 		// 전체 게시물 갯수 구하기
-		int total = service.getCount();
+		int total = service.getcountsearch(dto);
 		
 		// 현재 페이지 번호 구하기
 		int currentPage = service.getCurrentPage(page);
@@ -46,19 +52,22 @@ public class ListController extends HttpServlet{
 		// Limit용 start 계산
 		int start = service.getStart(currentPage);
 		
-		// 글 목록 조회하기
-		List<ArticleDTO> dtoList = service.findAll(start);
-		
+		// 검색 키워드 글 목록 조회하기
+		List<ArticleDTO> dtoList = service.findAllSearch(dto, start);
+				
 		// View 참조
 		req.setAttribute("dtoList", dtoList);
 		req.setAttribute("total", total);
 		req.setAttribute("lastPageNum", lastPageNum);
 		req.setAttribute("currentPage", currentPage);
 		req.setAttribute("pageStart", pageStart);
-		req.setAttribute("pageGroupDTO", pageGroupDTO);			
+		req.setAttribute("pageGroupDTO", pageGroupDTO);	
+		req.setAttribute("searchType", searchType);	
+		req.setAttribute("keyword", keyword);	
+		
 		
 		// View 포워드
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/article/list.jsp");
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/article/search.jsp");
 		dispatcher.forward(req, resp);
 	}
 	

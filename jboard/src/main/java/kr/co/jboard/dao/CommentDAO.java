@@ -1,5 +1,6 @@
 package kr.co.jboard.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import kr.co.jboard.dto.CommentDTO;
@@ -45,7 +46,7 @@ public class CommentDAO extends DBHelper{
 	}
 	
 	public List<CommentDTO> selectAll() {
-		List<CommentDTO> dtoList = null;
+		List<CommentDTO> dtoList = new ArrayList<>();
 		
 		try {
 			conn = getConnection();

@@ -1,5 +1,6 @@
 package kr.co.jboard.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import kr.co.jboard.dto.FileDTO;
@@ -45,7 +46,7 @@ public class FileDAO extends DBHelper{
 	}
 	
 	public List<FileDTO> selectAll() {
-		List<FileDTO> dtoList = null;
+		List<FileDTO> dtoList = new ArrayList<>();
 		
 		try {
 			conn = getConnection();
